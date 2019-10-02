@@ -6,13 +6,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.util.List;
 
 public class BaseFunc {
 
     private WebDriver driver;
-
 
 
     public BaseFunc() {
@@ -25,26 +31,30 @@ public class BaseFunc {
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "http://" + url;
         }
-
         driver.get(url);
     }
 
-    public void clickElement(By byElement) {
-        WebElement element = driver.findElement(byElement);
-//        WebDriver driver = new FirefoxDriver();
-//        WebDriverWait wait = new WebDriverWait(driver,60);
-//        wait.until(ExpectedConditions.visibilityOf(element));
+    public void clickElement(WebElement element) {
         element.click();
     }
 
-//    public void getListOfElements(By byElement) {
-//        List<WebElement> elements = driver.findElements(byElement);
-//
-//    }
-//    public void goToCategory(WebElement category) {
-//        category = driver.findElement(CATEGORY);
-//        category.click();
-//    }
+    public void waitForElements(List<WebElement> elements) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+    }
 
+    public void hoverOnElement(WebElement element) {
+        Actions action = new Actions(driver);
+        action.moveToElement(element);
+    }
 
+    public List<WebElement> findElements(By locator) {
+        return driver.findElements(locator);
+    }
 }
+
+
+
+
+
+
