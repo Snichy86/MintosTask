@@ -1,5 +1,6 @@
 package PageObjects.Pages;
 
+import Model.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -8,31 +9,23 @@ import java.util.Random;
 
 public class Homepage {
     private BaseFunc baseFunc;
-    private final By MAIN_CATEGORY_ELEMENT = By.xpath(".//ul[@class='sidenav v2']/li/a");
-    private final By SECONDARY_CATEGORY_ELEMENT = By.xpath(".//div[contains(@class, 'col-holder')]//li//a");
+
+    private final By MAIN_CATEGORY_ELEMENT = By.xpath(".//span[@class='text'][contains(text(),'ves tehnika')]");
+    private final By SECONDARY_CATEGORY_ELEMENT = By.xpath(".//ul[@class='menu main-menu-new-labels']//a[contains(text(),'Vadi un adapteri')]");
 
 
     public Homepage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
     }
 
-    public void clickOnRandomProductCategory(By mainCategoryLocator, By secondaryCategoryLocator) {
-        List<WebElement> mainCategoryElements = baseFunc.findElements(mainCategoryLocator);
-        Random random = new Random();
-        int randomValue = random.nextInt(mainCategoryElements.size());
-        WebElement mainCategoryElement = mainCategoryElements.get(randomValue);
+    public void clickOnProductCategory() {
+
+        WebElement mainCategoryElement = baseFunc.findElement(MAIN_CATEGORY_ELEMENT);
         baseFunc.hoverOnElement(mainCategoryElement);
-
-
-
-        List<WebElement> secondaryCategoryElements = baseFunc.findElements(secondaryCategoryLocator);
-
-        baseFunc.waitForElements(secondaryCategoryElements);
-
-        int randomValue2 = random.nextInt(secondaryCategoryElements.size());
-        WebElement secondaryCategoryElement = secondaryCategoryElements.get(randomValue2);
-        baseFunc.clickElement(secondaryCategoryElement);
+        baseFunc.findElement(SECONDARY_CATEGORY_ELEMENT).click();
     }
+
+
 }
 
 

@@ -2,7 +2,9 @@ package PageObjects.Pages;
 
 //import com.sun.source.tree.CompoundAssignmentTree;
 
+import Model.Product;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,10 +17,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class BaseFunc {
 
     private WebDriver driver;
+
 
 
     public BaseFunc() {
@@ -34,23 +38,28 @@ public class BaseFunc {
         driver.get(url);
     }
 
-    public void clickElement(WebElement element) {
-        element.click();
-    }
 
-    public void waitForElements(List<WebElement> elements) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+    public void wait(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
 
     public void hoverOnElement(WebElement element) {
         Actions action = new Actions(driver);
-        action.moveToElement(element);
+        action.moveToElement(element).build().perform();
     }
 
     public List<WebElement> findElements(By locator) {
         return driver.findElements(locator);
     }
+
+
+
+    public WebElement findElement(By locator) {
+        return driver.findElement(locator);
+    }
+
+
 }
 
 

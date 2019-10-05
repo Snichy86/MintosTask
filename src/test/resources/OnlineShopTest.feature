@@ -1,4 +1,4 @@
-Feature: Testing Sportsdirect page
+Feature: Testing 1a.lv page
   Scenario: shopping
     Given homepage
     When choose category
