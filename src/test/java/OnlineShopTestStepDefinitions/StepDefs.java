@@ -5,6 +5,7 @@ import PageObjects.Pages.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -30,7 +31,7 @@ public class StepDefs {
         homepage.clickOnProductCategory();
     }
 
-    @When("put random product in the shopping basket")
+    @When("add random product to the cart")
     public void choose_product() {
         categoryPage.clickRandomProduct();
         product = productPage.getProduct(productPage.productBlock());
@@ -46,6 +47,8 @@ public class StepDefs {
     public void assert_name_and_price() {
         Assertions.assertEquals(product.getProductName(), cartPage.productName(), "Wrong product name.");
         Assertions.assertEquals(product.getProductPrice(), cartPage.productPrice(), "Wrong product price.");
+        baseFunc.closeBrowser();
 
     }
+
 }

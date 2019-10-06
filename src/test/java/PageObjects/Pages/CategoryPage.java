@@ -12,7 +12,9 @@ public class CategoryPage {
 
     private final By PRODUCT = By.xpath(".//div[contains(@id,'productBlock')]//a[@class='image-wrap']//img");
 
-    public CategoryPage(BaseFunc baseFunc){this.baseFunc = baseFunc;}
+    public CategoryPage(BaseFunc baseFunc) {
+        this.baseFunc = baseFunc;
+    }
 
     public void clickRandomProduct() {
         List<WebElement> products = baseFunc.findElements(PRODUCT);

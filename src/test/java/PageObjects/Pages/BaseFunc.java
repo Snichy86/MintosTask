@@ -3,6 +3,7 @@ package PageObjects.Pages;
 //import com.sun.source.tree.CompoundAssignmentTree;
 
 import Model.Product;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +23,6 @@ import java.util.concurrent.TimeUnit;
 public class BaseFunc {
 
     private WebDriver driver;
-
 
 
     public BaseFunc() {
@@ -54,9 +54,12 @@ public class BaseFunc {
     }
 
 
-
     public WebElement findElement(By locator) {
         return driver.findElement(locator);
+    }
+
+    public void closeBrowser() {
+        driver.close();
     }
 
 

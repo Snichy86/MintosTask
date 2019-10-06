@@ -18,10 +18,11 @@ public class CartPage {
         String name = baseFunc.findElement(PRODUCT_NAME).getText();
         return name;
     }
-    public Integer productPrice () {
+
+    public Integer productPrice() {
         baseFunc.wait(TOTAL_PRICE);
         String priceS = baseFunc.findElement(TOTAL_PRICE).getText();
-        priceS = priceS.substring(2).replace(",","");
+        priceS = priceS.substring(2).replace(",", "");
         Integer price = Integer.valueOf(priceS);
         return price;
     }

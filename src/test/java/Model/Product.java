@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import java.math.BigDecimal;
 
 public class Product {
-private String productName;
-private Integer productPrice;
+    private String productName;
+    private Integer productPrice;
 
     public String getProductName() {
         return productName;
@@ -24,7 +24,7 @@ private Integer productPrice;
         this.productPrice = productPrice;
     }
 
-    public void setProductPrice (String productPrice) {
+    public void setProductPrice(String productPrice) {
         productPrice = productPrice.substring(2);
         this.productPrice = Integer.valueOf(productPrice);
     }
