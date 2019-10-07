@@ -22,6 +22,4 @@ public class CategoryPage {
         int randomValue = rand.nextInt(products.size());
         products.get(randomValue).click();
     }
-
-
 }

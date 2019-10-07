@@ -2,6 +2,7 @@ package PageObjects.Pages;
 
 import org.openqa.selenium.By;
 
+
 public class CartPage {
 
     private BaseFunc baseFunc;

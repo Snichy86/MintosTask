@@ -43,5 +43,4 @@ public class ProductPage {
     public void clickCartButton() {
         baseFunc.findElement(CART_BUTTON).click();
     }
-
 }

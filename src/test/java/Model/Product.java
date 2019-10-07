@@ -1,8 +1,5 @@
 package Model;
 
-import org.openqa.selenium.WebElement;
-
-import java.math.BigDecimal;
 
 public class Product {
     private String productName;

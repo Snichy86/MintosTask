@@ -5,10 +5,7 @@ import PageObjects.Pages.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class StepDefs {
     private String URL = "220.lv";
@@ -48,7 +45,5 @@ public class StepDefs {
         Assertions.assertEquals(product.getProductName(), cartPage.productName(), "Wrong product name.");
         Assertions.assertEquals(product.getProductPrice(), cartPage.productPrice(), "Wrong product price.");
         baseFunc.closeBrowser();
-
     }
-
 }
